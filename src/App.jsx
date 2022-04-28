@@ -1,10 +1,10 @@
-import { Component, useState } from 'react'
+import { useState } from 'react'
 import './App.css'
 
 const App = () => {
   const [count, setCount] = useState(0)
   const message = "Hello Function Component!";
-
+  console.log("Render")
   return (
     <div className="App">
       <header className="App-header">
