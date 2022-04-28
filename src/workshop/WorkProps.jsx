@@ -1,18 +1,30 @@
+import { createContext, useContext } from "react";
+
+// 1. Create context
+const DemoContext = createContext("Demo context")
+
 const DemoProps = () => {
+	// 2. Provider
     const myValue = "Hello from main";
-    return <ComponentA value={myValue}></ComponentA>;
+    return (
+		<DemoContext.Provider value={myValue}>
+			<ComponentA></ComponentA>
+		</DemoContext.Provider>
+	);
 }
 
-const ComponentA = (props) => {
-    return <ComponentB value={props.value}></ComponentB>;
+const ComponentA = () => {
+    return <ComponentB></ComponentB>;
 }
 
-const ComponentB = (props) => {
-    return <ComponentC value={props.value}></ComponentC>;
+const ComponentB = () => {
+    return <ComponentC ></ComponentC>;
 }
 
-const ComponentC = (props) => {
-    return <h3>{props.value}</h3>;
+const ComponentC = () => {
+	// 3. Consumer
+	const value = useContext(DemoContext);
+    return <h3>{value}</h3>;
 }
 
 export default DemoProps
