@@ -1,11 +1,11 @@
-import Users from "./Users";
+import DemoProps from "./WorkProps";
 
 const Workshop = () => {
 
   return (
     <div>
       <h2>Workshop component</h2>
-	  <Users/>
+	  <DemoProps/>
     </div>
   )
 }
