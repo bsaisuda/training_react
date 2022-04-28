@@ -1,10 +1,13 @@
+import { useState } from "react";
+
 const Hello = () => {
+  const [name, updateName] = useState("");
   return (
     <div>
       <form>
-		Name : <input type="text" />
+		Name : <input type="text"  />
 	  </form>
-	  Please enter your name
+	 {name ? <b>Hi, {name}</b> : "Please enter your name"}
     </div>
   )
 }
