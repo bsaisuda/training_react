@@ -1,29 +1,32 @@
 import { useState } from "react";
 
 const Hello2 = () => {
+  const [name, setName] = useState("");
+  const [age, setAge] = useState(0);
+
   return (
     <div>
       <form>
-        <Name/>
-        <Age/>
-        <Show name="default name" age="0"/>
+        <Name name={name} onNameChanged={(event) => setName(event.target.value)}/>
+        <Age age={age} onAgeChanged={(event) => setAge(event.target.value)}/>
+        <Show name={name} age={age}/>
 	    </form>
     </div>
   )
 }
 
-const Name = () => {
+const Name = ({name, onNameChanged}) => {
   return (
     <div>
-		  Name : <input type="text"/>
+		  Name : <input type="text" value={name} onChange={onNameChanged}/>
     </div>
   )
 }
 
-const Age = () => {
+const Age = ({age, onAgeChanged}) => {
   return (
     <div>
-		  Age : <input type="text"/>
+		  Age : <input type="text" value={age} onChange={onAgeChanged}/>
     </div>
   )
 }
